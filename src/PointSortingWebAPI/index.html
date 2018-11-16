@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html ng-app="PointApp">
+<head>
+    <meta charset="utf-8" />
+    <title>Рисование по точкам</title>
+
+    <link rel="stylesheet" href="/Scripts/bootstrap.min.css" />
+    <link rel="stylesheet" href="/Scripts/Style.css" />
+    <script src=/Scripts/angular.min.js></script>
+    <script src="Scripts/AppJS/App.js"></script>
+    <script src="Scripts/AppJS/AppCanvas.js"></script>
+</head>
+<body ng-controller="PointCtrl">
+    <div class="container">
+        <div class="panel panel-success">
+
+            <div class="panel-heading">
+                <div class="panel-title">Установить точки</div>
+            </div>
+
+            <div class="panel-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Запись</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" ng-model="points" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-8">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="checWeb" /> Web API
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-8">
+                            <button type="button" class="btn btn-primary" ng-click="btnLine()">Ломаные кривые</button>
+                            <button type="button" class="btn btn-primary" ng-click="btnSpiral()">Спиралевидные кривые</button>
+                            <button type="button" class="btn btn-primary pull-right" ng-click="btnClear()">Очистить</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    Рисунок
+                </div>
+                <div class="text-right" ng-show="message">
+                    {{message}}
+                </div>
+            </div>
+
+            <canvas id="canvas" height="1000px" width="1000px" class="form-control">
+                Ваш браузер не поддерживает элемент <b>Canvas</b>
+            </canvas>
+        </div>
+
+        <div class="panel-footer ">
+            <p class="text-center">Микуров Никита &copy;</p>
+        </div>
+    </div>
+</body>
+</html>
